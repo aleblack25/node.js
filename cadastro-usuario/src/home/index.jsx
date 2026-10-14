@@ -7,11 +7,19 @@ import {
   InputLabel,
   Input,
   Button,
-} from "./styles"
+} from "./styles";
+import { useRef } from "react";
 
-import UserImage from './assets/users.png'
+import UserImage from "../assets/users.png";
 
 function Home() {
+  const inputName = useRef()
+  const inputAge = useRef()
+  const inputEmail = useRef()
+
+  function registerNewUser() {
+    console.log (inputName)
+  }
 
   return (
 
@@ -29,14 +37,14 @@ function Home() {
             <InputLabel>
               Nome <span> *</span>
             </InputLabel>
-            <Input type="text" placeholder="Nome do usuário" />
+            <Input type="text" placeholder="Nome do usuário" ref={inputName} />
           </div>
 
           <div>
             <InputLabel>
               Idade <span> *</span>
             </InputLabel>
-            <Input type="number" placeholder="Idade" />
+            <Input type="number" placeholder="Idade" ref={inputAge} />
           </div>
 
 
@@ -46,10 +54,12 @@ function Home() {
           <InputLabel  >
             E-mail<span> *</span>
           </InputLabel>
-          <Input type="email" placeholder="E-mail" />
+          <Input type="email" placeholder="E-mail" ref={inputEmail} />
         </div>
 
-        <Button type="submit">Cadastrar Usuário</Button>
+        <Button type="button" onClick={registerNewUser}>
+          Cadastrar Usuário
+        </Button>
       </Form>
 
 
